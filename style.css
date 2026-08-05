@@ -1,0 +1,97 @@
+:root {
+	/* This is a variable which stores values */
+	--color-primary-silver: #EAECF0;
+	--color-secondary-blue: #233D4D;
+	--my-favorite-font: Arial, Helvetica, sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	font-family: var(--my-favorite-font);
+	/* how to use a variable */
+	background-color: var(--color-primary-silver);
+}
+
+nav {
+	background-color: var(--color-secondary-blue);
+	padding: 2em;
+
+	display: flex;
+	/* creates our flex parent container */
+
+	/* flex-direction: column; */
+	/* adjusts where the main axis is (horizontal or vertical) */
+
+	justify-content: space-between;
+	/* adjusts position alongside the main axis */
+
+	align-items: center;
+	/* adjusts position alonside the cross axis */
+
+	gap: 2em;
+	/* controls spsace between flex children */
+
+	height: 100px;
+
+}
+
+.nav-links {
+	color: var(--color-primary-silver);
+	text-decoration: none;
+}
+
+.img-container > img {
+	width: 500px;
+	height: 600px;
+	object-fit: cover;
+
+	/* How can I solve this dillema using responsive design? */
+
+	/* width: 50%; */
+	/* this solves our issue but introduces sizing constraint on mobile */
+
+}
+
+.main-container {
+	display: flex;
+	justify-content: center;
+}
+
+/* 
+	? Media Queries
+	* allow different rulesets to be applied to different conditions
+	* @media print specifies print rulesets
+	* @media screen specifies screen rulesets
+
+	? Three Most Common Sizes
+	* mobile (767px)
+	* tablet (1024px)
+	* desktop (above that)
+*/
+
+@media print {
+	/* if page in print mode, use the following rulesets */
+
+	body {
+		background-color: red;
+	}
+}
+
+/* renders when screen and under 768px width */
+@media screen and (max-width: 768px) {
+	.img-container > img {
+		width: 768px;
+	}
+}
+
+/* renders when under 430px width */
+@media (max-width: 430px) {
+	.img-container > img {
+		width: 430px;
+	}
+}
