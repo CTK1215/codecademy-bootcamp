@@ -1,0 +1,105 @@
+:root {
+  --primary-color: #3b5bfd;
+  --primary-color-dark: #2a46d6;
+  --text-color: #1a1a1a;
+  --bg-color: #f4f4f5;
+  --border-color: #ccc;
+  --white: #ffffff;
+  --radius: 4px;
+  --input-padding: 10px;
+  --font-family: Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.site-header {
+  background: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.site-header h1 {
+  margin: 0 0 8px;
+}
+
+.site-header p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.account-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--white);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 100%;
+}
+
+.field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.field input {
+  padding: var(--input-padding);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+
+.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: var(--primary-color-dark);
+}
+
+@media (min-width: 768px) {
+  .field {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  .field--full {
+    flex: 1 1 100%;
+  }
+}
