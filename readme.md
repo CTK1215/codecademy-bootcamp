@@ -1,540 +1,99 @@
-# JavaScript Challenge: Password Security Analyzer
+# Password Security Analyzer
 
-## Overview
+A small JavaScript program that takes a password and tells you how strong it is. Built one function at a time for the Codecademy Full-Stack Developer bootcamp (Week 3, functions challenge).
 
-You are building a program that analyzes a password and determines how secure it is.
+The point of the exercise was not the password checker itself. It was learning to break a problem into small functions and then build bigger functions out of the smaller ones, so nothing gets written twice.
 
-You will build the program **one function at a time**.
+## What it does
 
-Each function should solve **one small problem**. Later functions will use the functions you already created.
-
-By the end, one final function will combine everything into a complete password security report.
-
----
-
-# Part 1 — Check Password Length
-
-Create a function:
-
-```javascript
-checkLength(password)
-```
-
-The function should return:
-
-- `"too short"` if the password has fewer than 8 characters
-- `"good"` if the password has 8–15 characters
-- `"long"` if the password has 16 or more characters
-
-### Examples
-
-```javascript
-checkLength("hello");
-// "too short"
-
-checkLength("javascript123");
-// "good"
-
-checkLength("thisIsAVeryLongPassword");
-// "long"
-```
-
-Test your function before moving on.
-
----
-
-# Part 2 — Count Numbers
-
-Create a function:
-
-```javascript
-countNumbers(password)
-```
-
-Loop through the password one character at a time.
-
-Count how many characters are numbers.
-
-### Examples
-
-```javascript
-countNumbers("hello123");
-// 3
-
-countNumbers("abc");
-// 0
-```
-
-### Hint
-
-You can determine if a character is between `"0"` and `"9"`:
-
-```javascript
-character >= "0" && character <= "9"
-```
-
-Return the final count.
-
-Test your function before moving on.
-
----
-
-# Part 3 — Count Uppercase Letters
-
-Create a function:
-
-```javascript
-countUppercase(password)
-```
-
-Loop through the password and count how many uppercase letters it contains.
-
-### Examples
-
-```javascript
-countUppercase("HelloWorld");
-// 2
-
-countUppercase("javascript");
-// 0
-```
-
-### Hint
-
-Think about how these might help:
-
-```javascript
-letter.toUpperCase()
-letter.toLowerCase()
-```
-
-Be careful:
+Run it and you get a report for each test password:
 
 ```text
-"1"
-"!"
-"@"
-```
-
-should **not** count as uppercase letters.
-
-Return the final count.
-
-Test your function before moving on.
-
----
-
-# Part 4 — Count Special Characters
-
-Create a function:
-
-```javascript
-countSpecialCharacters(password)
-```
-
-For this challenge, these are considered special characters:
-
-```text
-! @ # $ % & *
-```
-
-Loop through the password and count how many special characters it contains.
-
-### Examples
-
-```javascript
-countSpecialCharacters("Hello!!");
-// 2
-
-countSpecialCharacters("test123");
-// 0
-```
-
-Return the final count.
-
-Test your function before moving on.
-
----
-
-# Part 5 — Does the Password Meet the Length Requirement?
-
-Now start **reusing your functions**.
-
-Create:
-
-```javascript
-hasGoodLength(password)
-```
-
-This function **must** call:
-
-```javascript
-checkLength(password)
-```
-
-Do **not** check `password.length` again inside this function.
-
-Return:
-
-- `true` if `checkLength()` returns `"good"` or `"long"`
-- `false` otherwise
-
-### Examples
-
-```javascript
-hasGoodLength("hello");
-// false
-
-hasGoodLength("javascript123");
-// true
-```
-
----
-
-# Part 6 — Does the Password Contain a Number?
-
-Create:
-
-```javascript
-hasNumber(password)
-```
-
-This function **must** use:
-
-```javascript
-countNumbers(password)
-```
-
-Do **not** write another loop.
-
-Return `true` if the password contains at least one number.
-
-Otherwise return `false`.
-
-### Example
-
-```javascript
-hasNumber("hello123");
-// true
-
-hasNumber("hello");
-// false
-```
-
----
-
-# Part 7 — Does the Password Contain an Uppercase Letter?
-
-Create:
-
-```javascript
-hasUppercase(password)
-```
-
-This function **must** use:
-
-```javascript
-countUppercase(password)
-```
-
-Do **not** write another loop.
-
-Return `true` if the password contains at least one uppercase letter.
-
-Otherwise return `false`.
-
----
-
-# Part 8 — Does the Password Contain a Special Character?
-
-Create:
-
-```javascript
-hasSpecialCharacter(password)
-```
-
-This function **must** use:
-
-```javascript
-countSpecialCharacters(password)
-```
-
-Do **not** write another loop.
-
-Return `true` if the password contains at least one special character.
-
-Otherwise return `false`.
-
----
-
-# Part 9 — Calculate the Security Score
-
-Create:
-
-```javascript
-calculateScore(password)
-```
-
-Start with:
-
-```javascript
-let score = 0;
-```
-
-Then award points:
-
-- **+1** if `hasGoodLength(password)` returns `true`
-- **+1** if `hasNumber(password)` returns `true`
-- **+1** if `hasUppercase(password)` returns `true`
-- **+1** if `hasSpecialCharacter(password)` returns `true`
-- **+1** if `checkLength(password)` returns `"long"`
-
-The maximum score is **5**.
-
-Return the final score.
-
-## Important Rule
-
-`calculateScore()` should **not** contain any loops.
-
-Reuse the functions you already created.
-
----
-
-# Part 10 — Determine Password Strength
-
-Create:
-
-```javascript
-getPasswordStrength(password)
-```
-
-This function **must** call:
-
-```javascript
-calculateScore(password)
-```
-
-Store the result in a variable.
-
-Return the password strength using the following table:
-
-| Score | Strength |
-| ------ | -------- |
-| 0–1 | Weak |
-| 2–3 | Medium |
-| 4 | Strong |
-| 5 | Very Strong |
-
-### Examples
-
-```javascript
-getPasswordStrength("hello");
-// "Weak"
-
-getPasswordStrength("Hello123!");
-// "Strong"
-```
-
-Do **not** recalculate the score manually.
-
----
-
-# Part 11 — Build the Final Analyzer
-
-Create:
-
-```javascript
-analyzePassword(password)
-```
-
-This function should connect your entire program together.
-
-It should print a report containing:
-
-- Password length
-- Length rating
-- Number count
-- Uppercase letter count
-- Special character count
-- Security score
-- Password strength
-
-### Example
-
-```javascript
-analyzePassword("JavaScript123!");
-```
-
-Possible output:
-
-```text
-PASSWORD SECURITY REPORT
-------------------------
-Password length: 14
+Password Security Report
+--------------------------
+Password: *********
+Password length: 9
 Length rating: good
 Numbers: 3
-Uppercase letters: 2
+Uppercase Letters: 1
 Special characters: 1
-Security score: 4 / 5
+Security score: 4 /5
 Strength: Strong
 ```
 
----
+## How to run it
 
-# Function Dependency
+You need Node installed.
 
-Your completed program should contain the following functions:
-
-```javascript
-checkLength()
-
-countNumbers()
-countUppercase()
-countSpecialCharacters()
-
-hasGoodLength()
-hasNumber()
-hasUppercase()
-hasSpecialCharacter()
-
-calculateScore()
-
-getPasswordStrength()
-
-analyzePassword()
+```bash
+node passwordAnalyzer.js
 ```
 
-Each function should build on the previous ones.
+The test calls are at the bottom of `passwordAnalyzer.js`. Add your own `analyzePassword("...")` line to try a different password.
+
+## How the score works
+
+A password starts at 0 and earns one point for each of these:
+
+| Check | Point |
+| --- | --- |
+| 8 or more characters | +1 |
+| Contains a number | +1 |
+| Contains an uppercase letter | +1 |
+| Contains a special character (`! @ # $ % & *`) | +1 |
+| 16 or more characters | +1 |
+| Same character three times in a row | -1 |
+
+The score never drops below 0. Then the score maps to a strength:
+
+| Score | Strength |
+| --- | --- |
+| 0 to 1 | Weak |
+| 2 to 3 | Medium |
+| 4 | Strong |
+| 5 | Very Strong |
+
+## How the functions fit together
+
+Every function does one job. The higher-level functions call the lower-level ones instead of repeating their logic.
 
 ```text
-checkLength()
-      ↓
-hasGoodLength()
-      ↓
-      ┐
-countNumbers() → hasNumber() ──────────────┐
-                                            │
-countUppercase() → hasUppercase() ─────────┤
-                                            ↓
-countSpecialCharacters() → hasSpecialCharacter()
-                                            ↓
-                                    calculateScore()
-                                            ↓
-                                getPasswordStrength()
-                                            ↓
-                                  analyzePassword()
+checkLength()              countNumbers()   countUppercase()   countSpecialCharacters()
+      |                          |                 |                     |
+hasGoodLength()             hasNumber()     hasUppercase()      hasSpecialCharacter()
+      |                          |                 |                     |
+      +--------------------------+-----------------+---------------------+
+                                 |
+                          calculateScore()  <-- also calls hasRepeatedCharacters()
+                                 |
+                        getPasswordStrength()
+                                 |
+                          analyzePassword()  <-- also calls hidePassword()
 ```
 
----
+| Function | Job |
+| --- | --- |
+| `checkLength` | Rates the length as `"too short"`, `"good"`, or `"long"` |
+| `countNumbers` | Counts digits |
+| `countUppercase` | Counts capital letters |
+| `countSpecialCharacters` | Counts `! @ # $ % & *` |
+| `hasGoodLength` | True if the length rating is `"good"` or `"long"` |
+| `hasNumber` | True if there is at least one digit |
+| `hasUppercase` | True if there is at least one capital letter |
+| `hasSpecialCharacter` | True if there is at least one special character |
+| `hidePassword` | Returns one `*` per character so the report never shows the real password |
+| `hasRepeatedCharacters` | True if any character shows up three times in a row |
+| `calculateScore` | Adds up the points, subtracts for repeats, floors at 0 |
+| `getPasswordStrength` | Turns the score into Weak / Medium / Strong / Very Strong |
+| `analyzePassword` | Pulls everything together and prints the report |
 
-# Testing
+## Constraints I worked under
 
-Test your program with **at least five different passwords**.
+The challenge only allowed the basics: variables, strings, string indexing, `.length`, `.toUpperCase()`, `.toLowerCase()`, conditionals, logical operators, loops, functions, and `console.log()`. No arrays, no objects, no `prompt()`. Every count is a plain `for` loop over the string.
 
-```javascript
-analyzePassword("hello");
+## What I took away
 
-analyzePassword("hello123");
-
-analyzePassword("Hello123");
-
-analyzePassword("Hello123!");
-
-analyzePassword("SuperSecure123!");
-```
-
-Your tests should include:
-
-- A short password
-- A password with no numbers
-- A password with multiple numbers
-- A password with no uppercase letters
-- A password with multiple uppercase letters
-- A password with no special characters
-- A password with multiple special characters
-- A password with 16 or more characters
-
----
-
-# Rules
-
-You may use:
-
-- Variables
-- Strings
-- String indexing
-- `.length`
-- `.toUpperCase()`
-- `.toLowerCase()`
-- Conditionals
-- Logical operators
-- Loops
-- Functions
-- Parameters
-- Return values
-- `console.log()`
-
-Do **not** use:
-
-- Arrays
-- Objects
-- `prompt()`
-
----
-
-# 🌶️ Spicy Mode
-
-## Part 12 — Hide the Password
-
-Create:
-
-```javascript
-hidePassword(password)
-```
-
-Return a string containing one `*` for every character in the password.
-
-Example:
-
-```javascript
-hidePassword("Hello123!");
-// *********
-```
-
-Use a loop.
-
-Update `analyzePassword()` so the report displays the hidden password instead of the original password.
-
-Example:
-
-```text
-Password: *********
-```
-
----
-
-## Part 13 — Detect Repeated Characters
-
-Create:
-
-```javascript
-hasRepeatedCharacters(password)
-```
-
-Return `true` if the same character appears **three times in a row**.
-
-Examples:
-
-```javascript
-hasRepeatedCharacters("Hellooo123");
-// true
-
-hasRepeatedCharacters("Hello123");
-// false
-```
-
-Modify `calculateScore()`:
-
-- Subtract **1 point** if three repeated characters are found.
-- The score should never go below **0**.
+- Write the small function first, test it, then build on it. Every later function got easier because the earlier ones were already proven.
+- A function that answers a yes/no question (`hasNumber`) should reuse the function that counts (`countNumbers`), not run its own loop.
+- When you are looking ahead in a string (`password[i + 2]`), stop the loop early so you never read past the end.
+- Returning from inside a loop is fine when you only care whether something happened at least once.
