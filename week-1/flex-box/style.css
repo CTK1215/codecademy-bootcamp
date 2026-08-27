@@ -1,0 +1,90 @@
+/* 
+	? Flexbox
+	* module dividing our wireframe
+	* breaks down elements into parent and child container
+	* uses custom properties and values
+	* parents control children
+	* structured using main and cross axes
+*/
+
+:root {
+	/* This is a variable which stores values */
+	--color-primary-silver: #e2e3e7;
+	--color-secondary-blue: #0e2736;
+	--my-favorite-font: Arial, Helvetica, sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	font-family: var(--my-favorite-font);
+	/* how to use a variable */
+	background-color: var(--color-primary-silver);
+}
+
+nav {
+	background-color: var(--color-secondary-blue);
+	padding: 2em;
+    
+
+	display: flex;
+	/* creates our flex parent container */
+
+	/* flex-direction: column; */
+	/* adjusts where the main axis is (horizontal or vertical) */
+
+	justify-content: right;
+	/* adjusts position alongside the main axis */
+
+	align-items: center;
+	/* adjusts position alonside the cross axis */
+
+	gap: 2em;
+	/* controls spsace between flex children */
+
+	height: 100px;
+
+}
+
+.nav-links {
+	color: var(--color-primary-silver);
+	text-decoration: none;
+    text-anchor:rgb(90, 32, 184);
+}
+
+.img-item {
+	width: 200px;
+	height: 200px;
+    justify-content: center;
+
+	box-sizing: border-box;
+}
+
+/* 
+	? Flexbox Challenge
+	* make the image container a flex container
+	* center the container
+	* center the images
+	* make sure there's a gap of 1em between each image
+*/
+
+.main-container {
+	height: 100vh;
+
+	display: flex;
+	
+}
+
+.img-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    flex-wrap: wrap;
+	gap: 5em;
+    box-sizing: border-box;
+	height: 80vh;
+}
