@@ -1,0 +1,34 @@
+/* Cascading Style Sheets 
+ * Based on rulesets
+    * sets of rules pertaining to elements 
+ * sets of rules within specific elements
+*/
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: lch(88.64% 4.03 264.63);
+}
+
+.nav-link {
+    color: hsl(239, 86%, 49%);
+    text-decoration: none;
+    padding: 10px;
+}
+
+#html-notes {
+    padding: 25px;
+    border: 1px solid rgb(28, 31, 216);
+}
+
+img {
+    
+    width: 50%;
+    height: 100%;
+}
+
+h1{
+    font-size: 32px;
+}
