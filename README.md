@@ -4,7 +4,7 @@ Coursework from the Codecademy Full-Stack Developer bootcamp, cohort FS-26. Star
 
 The early lessons each started as their own GitHub repo. They were consolidated here with `git subtree`, so the full commit history of each is preserved. Everything from week 4 on is committed here directly.
 
-The Unit 2 portfolio project is a separate repo with its own GitHub Pages site: [unit2-dev-portfolio](https://github.com/CTK1215/unit2-dev-portfolio).
+The Unit 2 portfolio project is a separate repo with its own GitHub Pages site: [codecademy-portfolio](https://github.com/CTK1215/codecademy-portfolio).
 
 ## Week 1
 
