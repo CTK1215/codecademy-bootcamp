@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Intro to DOM</title>
+</head>
+<body>
+    <!-- "Hardcode" = written here in the HTML, not built by JavaScript -->
+    <main>
+        <!-- JavaScript will find this div and drop the images inside it -->
+        <div class="img-container"></div>
+    </main>
+
+    <!-- Script stays at the BOTTOM of body. The browser reads top to bottom,
+         so the div above already exists by the time app.js runs.
+         Move this tag above <main> and querySelector returns null. -->
+    <script src="app.js"></script>
+</body>
+</html>

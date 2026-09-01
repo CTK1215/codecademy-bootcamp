@@ -1,0 +1,17 @@
+/* SPICEY MODE styling.
+   The flexbox goes on .img-container because it's the PARENT of the five
+   images. Flexbox is always declared on the parent; the children (the imgs
+   that app.js appends) become flex items automatically. */
+
+.img-container {
+    display: flex;          /* turn on flexbox: children now sit in a row */
+    flex-wrap: wrap;        /* let items drop to a new row instead of overflowing on small screens */
+    justify-content: center;/* center the row(s) horizontally */
+    gap: 16px;              /* even breathing room between every image, no margin math */
+    padding: 16px;
+}
+
+/* Not required by the challenge, just makes the crop obvious */
+.img-container img {
+    border-radius: 8px;
+}
