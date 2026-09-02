@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task Board</title>
+</head>
+
+<body>
+	<h1>Task Board</h1>
+
+	<div class="task-form">
+		<input id="taskInput" type="text" placeholder="Enter a task">
+
+		<select id="priority">
+			<option value="normal">Normal</option>
+			<option value="important">Important</option>
+			<option value="urgent">Urgent</option>
+		</select>
+
+		<button id="addBtn">Add Task</button>
+	</div>
+
+	<p id="taskCount">0 tasks remaining</p>
+	<p id="emptyMessage">No tasks yet.</p>
+
+	<ul id="taskList"></ul>
+
+	<button id="clearCompletedBtn">Clear Completed</button>
+
+	<script src="app.js"></script>
+</body>
+
+</html>
