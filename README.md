@@ -37,3 +37,12 @@ The Unit 2 portfolio project is a separate repo with its own GitHub Pages site: 
 | [arrays.js](week-4/arrays.js), [array-methods.js](week-4/array-methods.js) | arrays and array methods |
 | [objects.js](week-4/objects.js), [object-methods.js](week-4/object-methods.js) | objects and object methods |
 | [classes.js](week-4/classes.js) | classes |
+
+## Week 5
+
+| Lesson | Notes |
+|---|---|
+| [dom-lesson](week-5/dom-lesson) | DOM basics: selecting elements, events, class toggling |
+| [app.js](week-5/app.js), [index.html](week-5/index.html), [style.css](week-5/style.css) | login form with auth logic and a dark mode toggle, files at the week root |
+| [task-board-challenge](week-5/task-board-challenge) | DOM challenge: tasks with priorities, click to complete, delete, live counter |
+| [mini-feed-simulator](https://github.com/CTK1215/mini-feed-simulator) | separate repo, the data layer of a social feed in plain Node |
