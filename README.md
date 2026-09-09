@@ -46,3 +46,10 @@ The Unit 2 portfolio project is a separate repo with its own GitHub Pages site: 
 | [app.js](week-5/app.js), [index.html](week-5/index.html), [style.css](week-5/style.css) | login form with auth logic and a dark mode toggle, files at the week root |
 | [task-board-challenge](week-5/task-board-challenge) | DOM challenge: tasks with priorities, click to complete, delete, live counter |
 | [mini-feed-simulator](https://github.com/CTK1215/mini-feed-simulator) | separate repo, the data layer of a social feed in plain Node |
+
+## Week 6
+
+| Lesson | Notes |
+|---|---|
+| [async-fetch](week-6/async-fetch) | async fundamentals as a runnable Node file: event loop, callbacks, promises, async/await, fetch, Promise.all |
+| [fetch](week-6/fetch) | fetch challenge: load a status API, one Bootstrap card per service, live search that filters cards as you type |
