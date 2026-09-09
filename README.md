@@ -43,9 +43,9 @@ The Unit 2 portfolio project is a separate repo with its own GitHub Pages site: 
 | Lesson | Notes |
 |---|---|
 | [dom-lesson](week-5/dom-lesson) | DOM basics: selecting elements, events, class toggling |
-| [app.js](week-5/app.js), [index.html](week-5/index.html), [style.css](week-5/style.css) | login form with auth logic and a dark mode toggle, files at the week root |
+| [login-form](week-5/) | login form with auth logic and a dark mode toggle, files at the week root |
 | [task-board-challenge](week-5/task-board-challenge) | DOM challenge: tasks with priorities, click to complete, delete, live counter |
-| [mini-feed-simulator](https://github.com/CTK1215/mini-feed-simulator) | separate repo, the data layer of a social feed in plain Node |
+| [mini-feed-simulator](https://ctk1215.github.io/mini-feed-simulator/mini-feed-ui/) | separate repo ([source](https://github.com/CTK1215/mini-feed-simulator)), a social feed data layer in plain Node with a browser UI on top |
 
 ## Week 6
 
