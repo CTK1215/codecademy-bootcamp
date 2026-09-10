@@ -53,3 +53,4 @@ The Unit 2 portfolio project is a separate repo with its own GitHub Pages site: 
 |---|---|
 | [async-fetch](week-6/async-fetch) | async fundamentals as a runnable Node file: event loop, callbacks, promises, async/await, fetch, Promise.all |
 | [fetch](week-6/fetch) | fetch challenge: load a status API, one Bootstrap card per service, live search that filters cards as you type |
+| [LLM-Pokedex](https://github.com/CTK1215/codecademy-llm-pokedex) | separate repo (fork of the instructor's assignment repo), vanilla JS Pokedex on PokeAPI: search by name or number, types, abilities, base stats, species data |
