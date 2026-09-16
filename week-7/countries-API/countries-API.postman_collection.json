@@ -1,0 +1,82 @@
+{
+  "info": {
+    "name": "Countries API (week 7)",
+    "description": "Every route in the Economics of Countries API. Set baseUrl if you change PORT or HOST in .env.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://127.0.0.1:4000" }
+  ],
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "POST register",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/auth/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"chris@example.com\",\n  \"password\": \"secret123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "POST login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"chris@example.com\",\n  \"password\": \"secret123\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "countries",
+      "item": [
+        {
+          "name": "GET all countries",
+          "request": { "method": "GET", "url": "{{baseUrl}}/countries/all" }
+        },
+        {
+          "name": "POST new country",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/countries/new",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Canada\",\n  \"capital\": \"Ottawa\",\n  \"currency\": \"CAD\",\n  \"gdp\": 2140,\n  \"population\": 40000000\n}"
+            }
+          }
+        },
+        {
+          "name": "GET one country by name",
+          "request": { "method": "GET", "url": "{{baseUrl}}/countries/japan" }
+        },
+        {
+          "name": "PUT update country by id",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/countries/2",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Japan\",\n  \"capital\": \"Tokyo\",\n  \"currency\": \"JPY\",\n  \"gdp\": 4300,\n  \"population\": 123500000\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE country by id",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/countries/5" }
+        }
+      ]
+    }
+  ]
+}

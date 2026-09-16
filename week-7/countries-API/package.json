@@ -1,0 +1,21 @@
+{
+  "name": "countries-api",
+  "version": "1.0.0",
+  "description": "Economics of Countries API, an MVC + helpers Express server",
+  "license": "ISC",
+  "author": "Chris Kelly",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
