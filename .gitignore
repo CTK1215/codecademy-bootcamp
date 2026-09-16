@@ -4,3 +4,4 @@ week-6/LLM-Pokedex/
 .claude/
 .vscode/
 node_modules/
+.env
