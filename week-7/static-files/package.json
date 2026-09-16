@@ -1,0 +1,20 @@
+{
+  "name": "static-files",
+  "version": "1.0.0",
+  "description": "Static-files lesson",
+  "license": "ISC",
+  "author": "Chris Kelly",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node.js",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
