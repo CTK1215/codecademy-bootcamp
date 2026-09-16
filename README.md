@@ -54,3 +54,12 @@ The Unit 2 portfolio project is a separate repo with its own GitHub Pages site: 
 | [async-fetch](week-6/async-fetch) | async fundamentals as a runnable Node file: event loop, callbacks, promises, async/await, fetch, Promise.all |
 | [fetch](week-6/fetch) | fetch challenge: load a status API, one Bootstrap card per service, live search that filters cards as you type |
 | [LLM-Pokedex](https://github.com/CTK1215/codecademy-llm-pokedex) | separate repo (fork of the instructor's assignment repo), vanilla JS Pokedex on PokeAPI: search by name or number, types, abilities, base stats, species data |
+
+## Week 7
+
+| Lesson | Notes |
+|---|---|
+| [intro-to-express](week-7/intro-to-express) | first Express server: create the app, listen on a host and port |
+| [static-files](week-7/static-files) | serving a folder with `express.static` and a single file with `sendFile` |
+| [mvc-routes-middleware](week-7/mvc-routes-middleware) | `Router`, GET / POST / PUT / DELETE, query params vs route params, a timestamp middleware, `.env` with dotenv |
+| [countries-API](week-7/countries-API) | challenge: Economics of Countries API, MVC + helpers layout, `/auth/register` and `/auth/login`, full CRUD under `/countries`, Postman collection included |
