@@ -2,13 +2,9 @@
 const router = require("express").Router();
 const countries = require("../models/countries");
 const validateCountry = require("../helpers/validateCountry");
+const { badRequest, notFound } = require("../helpers/errorHandlers");
 
-/*
-	? GET /countries/all
-	* returns the whole array
-	! this MUST sit above GET /:country
-	* otherwise "all" gets swallowed as the value of :country
-*/
+// ! /all MUST sit above /:country, or "all" gets read as a country name
 router.get("/all", (req, res) => {
   res.status(200).json({
     count: countries.length,
@@ -16,24 +12,16 @@ router.get("/all", (req, res) => {
   });
 });
 
-/*
-	? POST /countries/new
-	* body holds the new country
-	* the helper checks the required fields so this route stays short
-	* the id comes from the server, never from the client
-*/
 router.post("/new", (req, res) => {
   let missing = validateCountry(req.body);
 
   if (missing.length > 0) {
-    return res.status(400).json({
-      message: "Missing required fields",
-      missing,
-    });
+    return badRequest(res, "Missing required fields", { missing });
   }
 
   let { name, capital, currency, gdp, population } = req.body;
 
+  // the id comes from the server, never from the client
   let newCountry = {
     id: countries.length > 0 ? countries[countries.length - 1].id + 1 : 1,
     name,
@@ -51,54 +39,40 @@ router.post("/new", (req, res) => {
   });
 });
 
-/*
-	? GET /countries/:country
-	* dynamic route, the value after /countries/ lands in req.params.country
-	* matched against the name, case-insensitive, so /countries/japan works
-*/
 router.get("/:country", (req, res) => {
   let { country } = req.params;
 
+  // case-insensitive, so /countries/japan works
   let found = countries.find(
     (c) => c.name.toLowerCase() === country.toLowerCase()
   );
 
   if (!found) {
-    return res.status(404).json({
-      message: `${country} not found`,
-    });
+    return notFound(res, `${country} not found`);
   }
 
   res.status(200).json(found);
 });
 
-/*
-	? PUT /countries/:id
-	* params come in as strings, so the id is converted before comparing
-	* PUT replaces the whole record, so every required field has to be present
-	* the id is kept from the URL, the client cannot change it
-*/
 router.put("/:id", (req, res) => {
+  // params come in as strings, so convert before comparing
   let id = Number(req.params.id);
   let index = countries.findIndex((c) => c.id === id);
 
   if (index === -1) {
-    return res.status(404).json({
-      message: `Country with id ${id} not found`,
-    });
+    return notFound(res, `Country with id ${id} not found`);
   }
 
+  // PUT replaces the whole record, so every field has to be present
   let missing = validateCountry(req.body);
 
   if (missing.length > 0) {
-    return res.status(400).json({
-      message: "Missing required fields",
-      missing,
-    });
+    return badRequest(res, "Missing required fields", { missing });
   }
 
   let { name, capital, currency, gdp, population } = req.body;
 
+  // the id is kept from the URL, the client cannot change it
   countries[index] = { id, name, capital, currency, gdp, population };
 
   res.status(200).json({
@@ -107,18 +81,12 @@ router.put("/:id", (req, res) => {
   });
 });
 
-/*
-	? DELETE /countries/:id
-	* find the index, splice it out, send back what was removed
-*/
 router.delete("/:id", (req, res) => {
   let id = Number(req.params.id);
   let index = countries.findIndex((c) => c.id === id);
 
   if (index === -1) {
-    return res.status(404).json({
-      message: `Country with id ${id} not found`,
-    });
+    return notFound(res, `Country with id ${id} not found`);
   }
 
   let [removed] = countries.splice(index, 1);

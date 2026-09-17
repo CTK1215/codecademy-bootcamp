@@ -1,10 +1,5 @@
-/*
-	? Model
-	* the data layer of MVC
-	* for now it is an in-memory array, so it resets every time the server restarts
-	* later in the course this becomes a database
-	* gdp is in billions of US dollars, population is a head count (approximate 2023 figures)
-*/
+// in-memory for now, so the data resets every time the server restarts
+// gdp is in billions of US dollars, population is a head count (approximate 2023 figures)
 
 let countries = [
   {

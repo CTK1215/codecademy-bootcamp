@@ -1,12 +1,6 @@
-/*
-	? Validation helper
-	* every country needs the same fields
-	* checking them in one place means POST and PUT cannot drift apart
-	* returns an array of the field names that are missing (empty array = valid)
-*/
-
 const REQUIRED_FIELDS = ["name", "capital", "currency", "gdp", "population"];
 
+// returns the names of any missing fields, so an empty array means valid
 function validateCountry(body) {
   let missing = [];
 

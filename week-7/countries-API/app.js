@@ -15,13 +15,7 @@ app.use(express.json());
 // log every request before it reaches a router
 app.use(timestamp);
 
-/*
-	? Mounting routers on a subroute
-	* app.use("/auth", auth) means every route inside auth.js
-	* is prepended with /auth, so router.post("/login") answers at /auth/login
-	* keeps the two routers from fighting over the same paths
-	* and is the "prepend a subroute" workaround from the routes lesson
-*/
+// mounting with a prefix, so router.post("/login") in auth.js answers at /auth/login
 app.use("/auth", auth);
 app.use("/countries", routes);
 
@@ -35,11 +29,3 @@ app.use((req, res) => {
 app.listen(PORT, HOST, () => {
   console.log(`[server] listening on ${HOST}:${PORT}`);
 });
-
-/*
-	? Project layout (MVC + helpers)
-	* models/       the data (in-memory arrays for now, a database later)
-	* controllers/  the business logic, one router per concern
-	* helpers/      small reusable functions the controllers lean on
-	* the view is whatever client hits the server: Postman, curl, a browser
-*/

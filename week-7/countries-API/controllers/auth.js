@@ -1,29 +1,20 @@
 // import express and invoke its router interface
 const router = require("express").Router();
 const users = require("../models/users");
+const { badRequest, unauthorized, conflict } = require("../helpers/errorHandlers");
 
-/*
-	? POST /auth/register
-	* body holds { email, password }
-	* both are required, and an email can only register once
-	* 201 Created on success, and the password never goes back out in the response
-	! passwords are stored as plain text for now, hashing comes later in the course
-*/
+// ! passwords are stored as plain text for now, hashing comes later in the course
 router.post("/register", (req, res) => {
   let { email, password } = req.body;
 
   if (!email || !password) {
-    return res.status(400).json({
-      message: "email and password are required",
-    });
+    return badRequest(res, "email and password are required");
   }
 
   let exists = users.find((user) => user.email === email);
 
   if (exists) {
-    return res.status(409).json({
-      message: `${email} is already registered`,
-    });
+    return conflict(res, `${email} is already registered`);
   }
 
   let newUser = {
@@ -34,33 +25,25 @@ router.post("/register", (req, res) => {
 
   users.push(newUser);
 
+  // the password never goes back out in the response
   res.status(201).json({
     message: "User registered",
     user: { id: newUser.id, email: newUser.email },
   });
 });
 
-/*
-	? POST /auth/login
-	* body holds { email, password }
-	* look the user up by email, then check the password
-	* 401 Unauthorized when either one is wrong (same message for both, so we do not leak which)
-*/
 router.post("/login", (req, res) => {
   let { email, password } = req.body;
 
   if (!email || !password) {
-    return res.status(400).json({
-      message: "email and password are required",
-    });
+    return badRequest(res, "email and password are required");
   }
 
   let user = users.find((user) => user.email === email);
 
+  // same message for a bad email and a bad password, so we do not leak which
   if (!user || user.password !== password) {
-    return res.status(401).json({
-      message: "Invalid email or password",
-    });
+    return unauthorized(res);
   }
 
   res.status(200).json({
